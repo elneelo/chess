@@ -6,17 +6,19 @@ class ChessBoard:
     PLAYER_TWO_INDICATOR = '_PL2'
 
     INDICATOR_LIST = [PLAYER_ONE_INDICATOR, PLAYER_TWO_INDICATOR]
-    
-    PAWN = 'pawn'
+
+    PAWN = '__pawn'
     CASTLE = 'castle'
     BISHOP = 'bishop'
     KNIGHT = 'knight'
-    QUEEN = 'queen'
-    KING = 'king'
+    QUEEN = '_queen'
+    KING = '__king'
+    EMPTY_TILE = '___EMPTY__'
 
     def __init__(self):
-        self.indicator= None
-        self.board = [[None for x in range(ChessBoard.BOARD_WIDTH)] for y in range(ChessBoard.BOARD_HEIGHT)]
+        self.indicator = None
+        self.board = [[
+            ChessBoard.EMPTY_TILE for x in range(ChessBoard.BOARD_WIDTH)] for y in range(ChessBoard.BOARD_HEIGHT)]
 
     def create_board(self):
         for indicator in ChessBoard.INDICATOR_LIST:
@@ -31,7 +33,11 @@ class ChessBoard:
 
     def format_print(self):
         print("")
-        for row in self.board:
+        for i, row in enumerate(self.board):
+            col_tracker = []
+            for j, col in enumerate(row):
+                col_tracker.append(" ( " + str(i) + ", " + str(j) + " ) ")
+            print(col_tracker)
             print(row)
         print("")
 

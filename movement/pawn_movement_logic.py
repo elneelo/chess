@@ -43,20 +43,20 @@ class PawnMovementLogic(BaseLogic):
             if self.player == ChessBoard.PLAYER_ONE_INDICATOR:
                 if self.from_row == self.to_row - 1:
                     if self.from_col == self.to_col:
-                        self.board[self.from_row][self.from_col] = None
+                        self.board[self.from_row][self.from_col] = ChessBoard.EMPTY_TILE
                         self.board[self.to_row][self.to_col] = self.pawn
                 elif self.from_row == self.to_row - 2:
                     if self.from_col == self.to_col:
-                        self.board[self.from_row][self.from_col] = None
+                        self.board[self.from_row][self.from_col] = ChessBoard.EMPTY_TILE
                         self.board[self.to_row][self.to_col] = self.pawn
             elif self.player == ChessBoard.PLAYER_TWO_INDICATOR:
                 if self.from_row == self.to_row + 1:
                     if self.from_col == self.to_col:
-                        self.board[self.from_row][self.from_col] = None
+                        self.board[self.from_row][self.from_col] = ChessBoard.EMPTY_TILE
                         self.board[self.to_row][self.to_col] = self.pawn
                 elif self.from_row == self.to_row + 2:
                     if self.from_col == self.to_col:
-                        self.board[self.from_row][self.from_col] = None
+                        self.board[self.from_row][self.from_col] = ChessBoard.EMPTY_TILE
                         self.board[self.to_row][self.to_col] = self.pawn
         return self.board
 
@@ -64,12 +64,12 @@ class PawnMovementLogic(BaseLogic):
         if self.player == ChessBoard.PLAYER_ONE_INDICATOR:
             if self.from_row == self.to_row - 1:
                 if self.from_col == self.to_col:
-                    self.board[self.from_row][self.from_col] = None
+                    self.board[self.from_row][self.from_col] = ChessBoard.EMPTY_TILE
                     self.board[self.to_row][self.to_col] = self.pawn
         elif self.player == ChessBoard.PLAYER_TWO_INDICATOR:
             if self.from_row == self.to_row + 1:
                 if self.from_col == self.to_col:
-                    self.board[self.from_row][self.from_col] = None
+                    self.board[self.from_row][self.from_col] = ChessBoard.EMPTY_TILE
                     self.board[self.to_row][self.to_col] = self.pawn
         return self.board
 
@@ -79,14 +79,14 @@ class PawnMovementLogic(BaseLogic):
                 if not self.board_sides_collision_detection():
                     return self.board
                 if self.from_col == self.to_col - 1 or self.from_col == self.to_col + 1:
-                    self.board[self.from_row][self.from_col] = None
+                    self.board[self.from_row][self.from_col] = ChessBoard.EMPTY_TILE
                     self.board[self.to_row][self.to_col] = self.pawn
         elif self.player == ChessBoard.PLAYER_TWO_INDICATOR:
             if self.from_row == self.to_row + 1:
                 if not self.board_sides_collision_detection():
                     return self.board
                 if self.from_col == self.to_col - 1 or self.from_col == self.to_col + 1:
-                    self.board[self.from_row][self.from_col] = None
+                    self.board[self.from_row][self.from_col] = ChessBoard.EMPTY_TILE
                     self.board[self.to_row][self.to_col] = self.pawn
         self.board_format_print(self.board)
         return self.board
